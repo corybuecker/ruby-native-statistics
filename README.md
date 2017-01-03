@@ -9,8 +9,7 @@ This is a native extension to Ruby that adds native (C) statistical functions to
 * [Sample Variance](https://en.wikipedia.org/wiki/Variance#Population_variance_and_sample_variance) (var)
 * [Population Variance](https://en.wikipedia.org/wiki/Variance#Population_variance_and_sample_variance) (varp)
 
-
-Check the TravisCI build to see the currently supported versions of Ruby. This list will match whatever versions are specified at https://www.ruby-lang.org/en/downloads/.
+Check the TravisCI build to see the currently supported versions of Ruby. This list will match whatever stable versions are specified at https://www.ruby-lang.org/en/downloads/.
 
 It is much more performant than calculating the standard deviation with pure Ruby. For a comparison, run the benchmarks with rake.
 
