@@ -30,9 +30,11 @@ double calculate_total_distance_from_mean(VALUE array, unsigned long array_lengt
 }
 
 VALUE rb_sample_standard_deviation(VALUE self) {
+  unsigned int array_length;
+
   Check_Type(self, T_ARRAY);
 
-  unsigned int array_length = rb_long2int(RARRAY_LEN(self));
+  array_length = rb_long2int(RARRAY_LEN(self));
 
   if (array_length <= 1) {
     rb_raise(rb_eRangeError, "array must have more than one element");
@@ -42,9 +44,11 @@ VALUE rb_sample_standard_deviation(VALUE self) {
 }
 
 VALUE rb_sample_variance(VALUE self) {
+  unsigned int array_length;
+
   Check_Type(self, T_ARRAY);
 
-  unsigned int array_length = rb_long2int(RARRAY_LEN(self));
+  array_length = rb_long2int(RARRAY_LEN(self));
 
   if (array_length <= 1) {
     rb_raise(rb_eRangeError, "array must have more than one element");
@@ -54,9 +58,11 @@ VALUE rb_sample_variance(VALUE self) {
 }
 
 VALUE rb_population_standard_deviation(VALUE self) {
+  unsigned int array_length;
+
   Check_Type(self, T_ARRAY);
 
-  unsigned int array_length = rb_long2int(RARRAY_LEN(self));
+  array_length = rb_long2int(RARRAY_LEN(self));
 
   if (array_length <= 1) {
     rb_raise(rb_eRangeError, "array must have more than one element");
@@ -66,9 +72,11 @@ VALUE rb_population_standard_deviation(VALUE self) {
 }
 
 VALUE rb_population_variance(VALUE self) {
+  unsigned int array_length;
+
   Check_Type(self, T_ARRAY);
 
-  unsigned int array_length = rb_long2int(RARRAY_LEN(self));
+  array_length = rb_long2int(RARRAY_LEN(self));
 
   if (array_length <= 1) {
     rb_raise(rb_eRangeError, "array must have more than one element");
