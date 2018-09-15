@@ -14,8 +14,8 @@ Check the TravisCI build to see the currently supported versions of Ruby. This l
 
 It is much more performant than calculating the standard deviation with pure Ruby. For a comparison, run the benchmarks with rake.
 
-    bench_native_dispersion  0.000686  0.000628  0.000595  0.000475  0.000590
-    bench_ruby_dispersion    0.002630  0.004559  0.002589  0.002909  0.002812
+    bench_native_dispersion	 0.000425	 0.000341	 0.000420	 0.000324	 0.000319
+    bench_ruby_dispersion	 0.002168	 0.002156	 0.002148	 0.002149	 0.002151
 
 ## Usage
 
