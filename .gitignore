@@ -37,3 +37,4 @@ Gemfile.lock
 *.bundle
 
 .env
+.tool-versions

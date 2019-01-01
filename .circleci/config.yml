@@ -1,0 +1,30 @@
+version: 2
+defaults: &defaults
+  steps:
+    - checkout
+    - run:
+        command: bundle install && bundle exec rake
+
+jobs:
+  build1:
+    docker:
+       - image: circleci/ruby:2.6.0
+    <<: *defaults
+
+  build2:
+    docker:
+       - image: circleci/ruby:2.5.3
+    <<: *defaults
+
+  build3:
+    docker:
+       - image: circleci/ruby:2.4.5
+    <<: *defaults
+
+workflows:
+  version: 2
+  test_all_versions:
+    jobs:
+      - build1
+      - build2
+      - build3

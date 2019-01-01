@@ -1,6 +1,4 @@
-# Ruby Native Statistics
-
-[![Build Status](https://travis-ci.org/corybuecker/ruby-native-statistics.svg)](https://travis-ci.org/corybuecker/ruby-native-statistics)
+# Ruby Native Statistics [![CircleCI](https://circleci.com/gh/corybuecker/ruby-native-statistics/tree/master.svg?style=svg)](https://circleci.com/gh/corybuecker/ruby-native-statistics/tree/master) [![Coverage Status](https://coveralls.io/repos/github/corybuecker/ruby-native-statistics/badge.svg?branch=master)](https://coveralls.io/github/corybuecker/ruby-native-statistics?branch=master)
 
 This is a native extension to Ruby that adds native (C) statistical functions to the Array class. At present the following functions are provided:
 
@@ -10,7 +8,7 @@ This is a native extension to Ruby that adds native (C) statistical functions to
 * [Population Variance](https://en.wikipedia.org/wiki/Variance#Population_variance_and_sample_variance) (varp)
 * [Mean](https://en.wikipedia.org/wiki/Arithmetic_mean) (mean)
 
-Check the TravisCI build to see the currently supported versions of Ruby. This list will match whatever stable versions are specified at https://www.ruby-lang.org/en/downloads/.
+Check the CircleCI build to see the currently supported versions of Ruby. This list will match whatever stable versions are specified at https://www.ruby-lang.org/en/downloads/.
 
 It is much more performant than calculating the standard deviation with pure Ruby. For a comparison, run the benchmarks with rake.
 
