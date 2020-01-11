@@ -1,6 +1,7 @@
 name: Test suite
 
-on: push
+on:
+  - push
 
 env:
   CI: true
