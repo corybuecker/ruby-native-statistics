@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "search.useGlobalIgnoreFiles": true,
+  "editor.wordWrap": "on",
+  "editor.renderWhitespace": "all"
+}

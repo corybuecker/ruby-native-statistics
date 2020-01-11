@@ -1,0 +1,40 @@
+name: Test suite
+
+on: push
+
+env:
+  CI: true
+
+jobs:
+  run-tests:
+    name: Run tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby:
+          - 2.4.9
+          - 2.5.7
+          - 2.6.5
+          - 2.7.0
+    steps:
+      - name: Setup Ruby
+        uses: eregon/use-ruby-action@master
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Install Bundler
+        run: gem install bundler -v 2.1.2
+
+      - name: Install gems
+        run: bundle
+
+      - name: Run tests
+        run: rake
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

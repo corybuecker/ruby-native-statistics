@@ -1,5 +1,5 @@
 require "ruby_native_statistics/version"
-require "dispersion"
+require "dispersion/dispersion"
 
 class Array
   include Dispersion

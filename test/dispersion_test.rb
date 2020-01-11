@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class TestClass
   include Dispersion
@@ -64,6 +64,4 @@ class DispersionTest < Minitest::Test
       ((1..10).to_a + [-41, "a", 0]).mean
     end
   end
-
-
 end
