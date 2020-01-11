@@ -21,10 +21,6 @@ class DispersionTest < Minitest::Test
     assert_raises TypeError do
       TestClass.new.stdevp
     end
-
-    assert_raises TypeError do
-      TestClass.new.mean
-    end
   end
 
   def test_sample_standard_deviation
@@ -52,16 +48,6 @@ class DispersionTest < Minitest::Test
   def test_population_standard_deviation_with_non_number
     assert_raises TypeError do
       ((1..10).to_a + [-41, "a", 0]).stdev
-    end
-  end
-
-  def test_mean
-    assert_in_delta 1.1784615, ((1..10).to_a + [-41, 1.32, 0]).mean, 0.00001
-  end
-
-  def test_mean_with_non_number
-    assert_raises TypeError do
-      ((1..10).to_a + [-41, "a", 0]).mean
     end
   end
 end

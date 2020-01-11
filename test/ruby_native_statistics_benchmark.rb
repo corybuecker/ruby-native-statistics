@@ -17,4 +17,17 @@ class RubyNativeStatisticsBenchmark < Minitest::Benchmark
       Math.sqrt(total_distance_from_mean / (array.size - 1))
     end
   end
+
+  def bench_native_mean
+    assert_performance_constant 0.99 do |input|
+      (1..10000).to_a.mean
+    end
+  end
+
+  def bench_ruby_mean
+    assert_performance_constant 0.99 do |input|
+      array = (1..10000).to_a
+      array.inject { |sum, el| sum + el }.to_f / array.size
+    end
+  end
 end
