@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Install Bundler
-        run: gem install bundler -v 2.1.2
+        run: gem install bundler --version 2.1.2 --no-document
 
       - name: Install gems
         run: bundle

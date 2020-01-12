@@ -1,3 +1,7 @@
+# Version 0.9.0
+
+- Add median function
+
 # Version 0.8.2
 
 - Bug fix for build process

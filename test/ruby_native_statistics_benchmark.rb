@@ -1,5 +1,5 @@
-require "minitest/benchmark"
 require "test_helper"
+require "minitest/benchmark"
 
 class RubyNativeStatisticsBenchmark < Minitest::Benchmark
   def bench_native_dispersion
@@ -28,6 +28,25 @@ class RubyNativeStatisticsBenchmark < Minitest::Benchmark
     assert_performance_constant 0.99 do |input|
       array = (1..10000).to_a
       array.inject { |sum, el| sum + el }.to_f / array.size
+    end
+  end
+
+  def bench_native_median
+    array = (1..100_000).to_a.shuffle
+
+    assert_performance_constant 0.99 do |input|
+      array.median
+    end
+  end
+
+  def bench_ruby_median
+    array = (1..100_000).to_a.shuffle
+
+    assert_performance_constant 0.99 do |input|
+      new_array = array.sort
+      elements = new_array.length
+      middle = elements / 2
+      elements.even? ? (new_array[middle] + new_array[middle + 1]) / 2.0 : new_array[middle]
     end
   end
 end
