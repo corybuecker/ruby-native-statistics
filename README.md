@@ -1,4 +1,6 @@
-# Ruby Native Statistics ![](https://github.com/corybuecker/ruby-native-statistics/workflows/Test%20suite/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/corybuecker/ruby-native-statistics/badge.svg?branch=master)](https://coveralls.io/github/corybuecker/ruby-native-statistics?branch=master)
+# Ruby Native Statistics
+
+[![Test status](https://github.com/corybuecker/ruby-native-statistics/workflows/Test%20suite/badge.svg)](https://github.com/corybuecker/ruby-native-statistics/actions)
 
 This is a native extension to Ruby that adds native (C) statistical functions to the Array class. At present the following functions are provided:
 
