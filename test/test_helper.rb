@@ -1,5 +1,5 @@
-require 'simplecov'
-require 'simplecov-lcov'
+require "simplecov"
+require "simplecov-lcov"
 
 SimpleCov::Formatter::LcovFormatter.config do |c|
   c.single_report_path = "coverage/lcov.info"
@@ -10,4 +10,8 @@ SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
 SimpleCov.start
 
 require "ruby_native_statistics"
+
+require "minitest/reporters"
+Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new]
+
 require "minitest/autorun"

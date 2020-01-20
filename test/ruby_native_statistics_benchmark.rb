@@ -49,12 +49,4 @@ class RubyNativeStatisticsBenchmark < Minitest::Benchmark
       elements.even? ? (new_array[middle] + new_array[middle + 1]) / 2.0 : new_array[middle]
     end
   end
-
-  def bench_native_percentile
-    array = (1..100_000).to_a.shuffle
-
-    assert_performance_constant 0.99 do |input|
-      array.percentile(0.45)
-    end
-  end
 end
