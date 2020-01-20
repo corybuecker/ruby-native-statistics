@@ -1,13 +1,5 @@
-#include "stdbool.h"
-#include "ruby.h"
-#include "mathematics.h"
 
-void Init_mathematics()
-{
-  MathematicsModule = rb_define_module("Mathematics");
-  rb_define_method(MathematicsModule, "mean", rb_mean, 0);
-  rb_define_method(MathematicsModule, "median", rb_median, 0);
-}
+#include "mathematics.h"
 
 double calculate_mean(VALUE array, unsigned long array_length)
 {
@@ -57,22 +49,10 @@ VALUE rb_mean(VALUE self)
   return DBL2NUM(calculate_mean(self, array_length));
 }
 
-int compare_doubles(const void *a, const void *b)
-{
-  double *dbl_a = (double *)a;
-  double *dbl_b = (double *)b;
-
-  double cmp_a = *dbl_a;
-  double cmp_b = *dbl_b;
-
-  return (cmp_a - cmp_b);
-}
-
 VALUE rb_median(VALUE self)
 {
   unsigned long array_length;
-  unsigned long i;
-  double *working_array;
+
   VALUE result;
 
   Check_Type(self, T_ARRAY);
@@ -87,30 +67,7 @@ VALUE rb_median(VALUE self)
   bool array_even_size = (array_length % 2) == 0;
   unsigned long middle = (long)floor(array_length / 2.0);
 
-  working_array = malloc(array_length * sizeof(double));
-
-  if (working_array == NULL)
-  {
-    rb_raise(rb_eStandardError, "unknown problem calculating median (possibly array is too large)");
-  }
-
-  for (i = 0; i < array_length; i++)
-  {
-    VALUE item = rb_ary_entry(self, i);
-
-    if (!RB_INTEGER_TYPE_P(item) && !RB_FLOAT_TYPE_P(item))
-    {
-      free(working_array);
-      rb_raise(rb_eTypeError, "element is not a number");
-    }
-
-    working_array[i] = NUM2DBL(item);
-  }
-
-  // Reminder to myself as I'm learning C. Using an array as a function parameter decays that reference
-  // to a pointer to the first element in the array.
-  // https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Function-Parameters
-  qsort(working_array, array_length, sizeof(double), compare_doubles);
+  double *working_array = sorted_ruby_array(self, array_length);
 
   if (!array_even_size)
   {

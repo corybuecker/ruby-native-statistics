@@ -21,5 +21,5 @@ Gem::Specification.new do |spec|
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = ["lib"]
 
-  spec.extensions = %w[ext/mathematics/extconf.rb ext/dispersion/extconf.rb]
+  spec.extensions = %w[ext/ruby_native_statistics/extconf.rb]
 end

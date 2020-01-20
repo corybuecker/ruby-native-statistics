@@ -1,12 +1,8 @@
 require "rake/extensiontask"
 require "rake/testtask"
 
-Rake::ExtensionTask.new "dispersion" do |ext|
-  ext.lib_dir = "lib"
-end
-
-Rake::ExtensionTask.new "mathematics" do |ext|
-  ext.lib_dir = "lib"
+Rake::ExtensionTask.new "ruby_native_statistics" do |ext|
+  ext.lib_dir = "lib/ruby_native_statistics"
 end
 
 Rake::TestTask.new(:test) do |t|
