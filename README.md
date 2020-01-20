@@ -8,6 +8,7 @@ This is a native extension to Ruby that adds native (C) statistical functions to
 - [Population Variance](https://en.wikipedia.org/wiki/Variance#Population_variance_and_sample_variance) (varp)
 - [Median](https://en.wikipedia.org/wiki/Median) (median)
 - [Mean](https://en.wikipedia.org/wiki/Arithmetic_mean) (mean)
+- [Percentile](https://en.wikipedia.org/wiki/Quantile) (percentile)
 
 Check the Github Actions build to see the currently supported versions of Ruby. This list will match whatever stable versions are specified at https://www.ruby-lang.org/en/downloads/.
 
@@ -15,6 +16,10 @@ It is much more performant than calculating the standard deviation with pure Rub
 
     bench_native_dispersion	 0.000425	 0.000341	 0.000420	 0.000324	 0.000319
     bench_ruby_dispersion	 0.002168	 0.002156	 0.002148	 0.002149	 0.002151
+
+## Found a bug? Need a function?
+
+If you found a bug or would need a particulr function, please let me know! I work on this gem in my spare time, mainly for learning purposes. Feel free to open a PR or a Github issue and I'll take a look as soon as possible.
 
 ## Usage
 
@@ -32,6 +37,15 @@ It is much more performant than calculating the standard deviation with pure Rub
 
     # calculate median
     p r.median
+
+    # calculate percentile
+    p r.percentile(0.3333)
+
+## Implementation notes
+
+### Percentile
+
+Percentile uses the same rounding method as Excel, sometimes called R7.
 
 ## Links
 

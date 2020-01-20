@@ -1,6 +1,5 @@
 require "ruby_native_statistics/version"
-require "mathematics"
-require "dispersion"
+require "ruby_native_statistics/ruby_native_statistics"
 
 class Array
   include Mathematics
