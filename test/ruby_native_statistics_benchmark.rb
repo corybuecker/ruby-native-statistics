@@ -2,15 +2,18 @@ require "test_helper"
 require "minitest/benchmark"
 
 class RubyNativeStatisticsBenchmark < Minitest::Benchmark
-  def bench_native_dispersion
+  def bench_native_stdev
+    array = (1..10_000).to_a
+
     assert_performance_constant 0.99 do |input|
-      (1..10000).to_a.stdev
+      array.to_a.stdev
     end
   end
 
-  def bench_ruby_dispersion
+  def bench_ruby_stdev
+    array = (1..10_000).to_a
+
     assert_performance_constant 0.99 do |input|
-      array = (1..10000).to_a
       total = array.inject(0) { |inner_total, element| inner_total + element }
       mean = total.to_f / array.size
       total_distance_from_mean = array.inject(0) { |inner_total, element| inner_total + (element - mean) ** 2 }
@@ -19,20 +22,23 @@ class RubyNativeStatisticsBenchmark < Minitest::Benchmark
   end
 
   def bench_native_mean
+    array = (1..10_000).to_a
+
     assert_performance_constant 0.99 do |input|
-      (1..10000).to_a.mean
+      array.mean
     end
   end
 
   def bench_ruby_mean
+    array = (1..10_000).to_a
+
     assert_performance_constant 0.99 do |input|
-      array = (1..10000).to_a
       array.inject { |sum, el| sum + el }.to_f / array.size
     end
   end
 
   def bench_native_median
-    array = (1..100_000).to_a.shuffle
+    array = (1..10_000).to_a.shuffle
 
     assert_performance_constant 0.99 do |input|
       array.median
@@ -40,7 +46,7 @@ class RubyNativeStatisticsBenchmark < Minitest::Benchmark
   end
 
   def bench_ruby_median
-    array = (1..100_000).to_a.shuffle
+    array = (1..10_000).to_a.shuffle
 
     assert_performance_constant 0.99 do |input|
       new_array = array.sort

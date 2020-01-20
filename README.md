@@ -12,22 +12,22 @@ This is a native extension to Ruby that adds native (C) statistical functions to
 
 Check the Github Actions build to see the currently supported versions of Ruby. This list will match whatever stable versions are specified at https://www.ruby-lang.org/en/downloads/.
 
-It is much more performant than calculating the standard deviation with pure Ruby. For a comparison, run the benchmarks with `rake benchmark`.
+It is generally more performant than calculating these values with pure Ruby. For a comparison, run the benchmarks with `rake benchmark`.
 
-| Test (Ruby 2.7.0)       | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
-| ----------------------- | -------- | -------- | -------- | -------- | -------- |
-| bench_native_dispersion | 0.000289 | 0.000283 | 0.000284 | 0.000284 | 0.000288 |
-| bench_ruby_dispersion   | 0.001853 | 0.002179 | 0.002126 | 0.001889 | 0.002067 |
+| Test (Ruby 2.7.0)  | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
+| ------------------ | -------- | -------- | -------- | -------- | -------- |
+| bench_native_stdev | 0.000105 | 0.000102 | 0.000101 | 0.000099 | 0.000132 |
+| bench_ruby_stdev   | 0.001661 | 0.001695 | 0.001733 | 0.001664 | 0.002006 |
 
 | Test (Ruby 2.7.0)   | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
 | ------------------- | -------- | -------- | -------- | -------- | -------- |
-| bench_native_median | 0.012742 | 0.012242 | 0.012207 | 0.011787 | 0.011660 |
-| bench_ruby_median   | 0.015473 | 0.015291 | 0.015193 | 0.015045 | 0.014974 |
+| bench_native_median | 0.001019 | 0.000955 | 0.001023 | 0.000933 | 0.000986 |
+| bench_ruby_median   | 0.001206 | 0.001166 | 0.001160 | 0.001160 | 0.001162 |
 
 | Test (Ruby 2.7.0) | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
 | ----------------- | -------- | -------- | -------- | -------- | -------- |
-| bench_native_mean | 0.000234 | 0.000319 | 0.000237 | 0.000230 | 0.000274 |
-| bench_ruby_mean   | 0.000661 | 0.000674 | 0.000642 | 0.000638 | 0.000656 |
+| bench_native_mean | 0.000051 | 0.000045 | 0.000050 | 0.000050 | 0.000049 |
+| bench_ruby_mean   | 0.000457 | 0.000462 | 0.000465 | 0.000486 | 0.000475 |
 
 ## Found a bug? Need a function?
 
