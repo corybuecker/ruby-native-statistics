@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email = ["cory.buecker@gmail.com"]
 
   spec.license = "Unlicense"
-  spec.summary = "This is a native extension to Ruby that adds various statistical functions to the Array class."
+  spec.summary = "High performance, native (C) implementations of various statistical functions."
   spec.homepage = "https://github.com/corybuecker/ruby-native-statistics"
 
   spec.required_ruby_version = Gem::Requirement.new(">= 2.4.9")
