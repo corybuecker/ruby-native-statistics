@@ -19,7 +19,7 @@ It is much more performant than calculating the standard deviation with pure Rub
 
 ## Found a bug? Need a function?
 
-If you found a bug or would need a particulr function, please let me know! I work on this gem in my spare time, mainly for learning purposes. Feel free to open a PR or a Github issue and I'll take a look as soon as possible.
+If you found a bug or need a particular function, please let me know! I work on this gem in my spare time, mainly for learning purposes. Feel free to open a PR or a Github issue and I'll take a look as soon as possible.
 
 ## Usage
 
