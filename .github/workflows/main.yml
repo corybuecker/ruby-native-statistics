@@ -18,12 +18,12 @@ jobs:
           - 2.7.1
     steps:
       - name: Setup Ruby
-        uses: eregon/use-ruby-action@master
+        uses: eregon/use-ruby-action@v1
         with:
           ruby-version: ${{ matrix.ruby }}
 
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Install Bundler
         run: gem install bundler --version 2.1.2 --no-document
