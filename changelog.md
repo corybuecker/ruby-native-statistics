@@ -1,3 +1,8 @@
+# Version 1.0.0
+
+- Update all supported Ruby versions
+- Update all dependencies
+
 # Version 0.9.0
 
 - Add median function
