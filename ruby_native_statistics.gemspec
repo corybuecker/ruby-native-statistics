@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.summary = "High performance, native (C) implementations of various statistical functions."
   spec.homepage = "https://github.com/corybuecker/ruby-native-statistics"
 
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.4.9")
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.6")
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
