@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby_native_statistics (1.0.0)
+    ruby_native_statistics (1.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -32,7 +32,7 @@ PLATFORMS
 
 DEPENDENCIES
   minitest (~> 5.15)
-  minitest-reporters (~> 1.4)
+  minitest-reporters (~> 1.6)
   rake (~> 13.0)
   rake-compiler (~> 1.1)
   ruby_native_statistics!
