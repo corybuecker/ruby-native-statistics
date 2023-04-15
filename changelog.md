@@ -1,3 +1,12 @@
+# Version 1.0.2
+
+- Better differentiate `gemspec` and `Gemfile` between runtime and development dependencies
+
+# Version 1.0.1
+
+- Update all supported Ruby versions
+- Update all dependencies
+
 # Version 1.0.0
 
 - Update all supported Ruby versions
