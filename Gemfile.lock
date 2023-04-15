@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    ruby_native_statistics (1.0.1)
+    ruby_native_statistics (1.0.2)
+      rake-compiler (~> 1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -33,11 +34,9 @@ PLATFORMS
 DEPENDENCIES
   minitest (~> 5.15)
   minitest-reporters (~> 1.6)
-  rake (~> 13.0)
-  rake-compiler (~> 1.1)
   ruby_native_statistics!
   simplecov (~> 0.21)
   simplecov-lcov (~> 0.8)
 
 BUNDLED WITH
-   2.4.7
+   2.4.12
