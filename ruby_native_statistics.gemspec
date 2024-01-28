@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.summary = "High performance, native (C) implementations of various statistical functions."
   spec.homepage = "https://github.com/corybuecker/ruby-native-statistics"
 
-  spec.required_ruby_version = ">= 2.7.8"
+  spec.required_ruby_version = ">= 3.0.3"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
@@ -23,9 +23,9 @@ Gem::Specification.new do |spec|
 
   spec.extensions = %w[ext/ruby_native_statistics/extconf.rb]
 
-  spec.add_runtime_dependency "rake-compiler", "~> 1.1"
+  spec.add_runtime_dependency "rake-compiler", "~> 1.2"
 
-  spec.add_development_dependency "minitest", "~> 5.15"
+  spec.add_development_dependency "minitest", "~> 5.21"
   spec.add_development_dependency "minitest-reporters", "~> 1.6"
   spec.add_development_dependency "simplecov", "~> 0.21"
   spec.add_development_dependency "simplecov-lcov", "~> 0.8"
