@@ -16,20 +16,20 @@ Check the Github Actions build to see the currently supported versions of Ruby. 
 
 It is generally more performant than calculating these values with pure Ruby. For a comparison, run the benchmarks with `rake benchmark`.
 
-| Test (Ruby 3.1.0)  | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
+| Test (Ruby 3.3.0)  | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
 | ------------------ | -------- | -------- | -------- | -------- | -------- |
-| bench_native_stdev | 0.000074 | 0.000070 | 0.000071 | 0.000070 | 0.000068 |
-| bench_ruby_stdev   | 0.000945 | 0.000942 | 0.000944 | 0.000941 | 0.000969 |
+| bench_native_stdev | 0.000069 | 0.000074 | 0.000064 | 0.000065 | 0.000065 |
+| bench_ruby_stdev   | 0.000947 | 0.000932 | 0.000927 | 0.000948 | 0.000909 |
 
-| Test (Ruby 3.1.0)   | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
+| Test (Ruby 3.3.0)   | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
 | ------------------- | -------- | -------- | -------- | -------- | -------- |
-| bench_native_median | 0.000813 | 0.000773 | 0.000774 | 0.000776 | 0.000773 |
-| bench_ruby_median   | 0.000816 | 0.000797 | 0.000832 | 0.000797 | 0.000799 |
+| bench_native_median | 0.000719 | 0.00067  | 0.000659 | 0.000638 | 0.000668 |
+| bench_ruby_median   | 0.000774 | 0.000743 | 0.000724 | 0.000697 | 0.000683 |
 
-| Test (Ruby 3.1.0) | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
+| Test (Ruby 3.3.0) | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
 | ----------------- | -------- | -------- | -------- | -------- | -------- |
-| bench_native_mean | 0.000040 | 0.000038 | 0.000038 | 0.000037 | 0.000037 |
-| bench_ruby_mean   | 0.000347 | 0.000350 | 0.000358 | 0.000349 | 0.000347 |
+| bench_native_mean | 0.000035 | 0.000035 | 0.000034 | 0.000032 | 0.000033 |
+| bench_ruby_mean   | 0.000291 | 0.000287 | 0.000291 | 0.000299 | 0.000281 |
 
 ## Found a bug? Need a function?
 
