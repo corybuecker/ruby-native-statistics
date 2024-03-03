@@ -1,3 +1,7 @@
+# Version 1.1.0
+
+- Fix percentile bug reported by @Gbird22
+
 # Version 1.0.3
 
 - Update all supported Ruby versions
