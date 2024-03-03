@@ -1,4 +1,5 @@
 #include "conversions.h"
+#include "float.h"
 
 int compare_doubles(const void *a, const void *b)
 {
@@ -8,7 +9,17 @@ int compare_doubles(const void *a, const void *b)
   double cmp_a = *dbl_a;
   double cmp_b = *dbl_b;
 
-  return (cmp_a - cmp_b);
+  if (fabs(cmp_a - cmp_b) <= (DBL_EPSILON * fabs(cmp_a + cmp_b))) 
+  {
+    return 0;
+  }
+
+  if (cmp_a > cmp_b)
+  {
+    return 1;
+  }
+
+  return -1;
 }
 
 double *sorted_ruby_array(VALUE array, long array_length)
@@ -20,7 +31,7 @@ double *sorted_ruby_array(VALUE array, long array_length)
 
   if (working_array == NULL)
   {
-    rb_raise(rb_eStandardError, "unknown problem calculating median (possibly array is too large)");
+    rb_raise(rb_eStandardError, "unknown problem sorting array (possibly array is too large)");
   }
 
   for (i = 0; i < array_length; i++)

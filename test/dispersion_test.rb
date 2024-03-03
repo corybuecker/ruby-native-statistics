@@ -129,4 +129,19 @@ class DispersionTest < Minitest::Test
     assert_in_delta 0.73895928, array.percentile(0.333), 0.000001
     assert_in_delta 11.43290852, array.percentile(0.928), 0.000001
   end
+
+  def test_percentile_repeating
+    array = [5.4, 5.3, 5.2, 5.4, 5.2].to_a.shuffle
+
+    assert_in_delta 5.4, array.percentile(0.9), 0.000001
+    assert_in_delta 5.2, array.percentile(0.1), 0.000001
+    assert_in_delta 5.3, array.percentile(0.5), 0.000001
+    assert_in_delta 5.26, array.percentile(0.4), 0.000001
+  end
+
+  def test_percentile_duplicates
+    array = [5.2, 5.2, 5.2, 5.2, 5.2].to_a.shuffle
+
+    assert_in_delta 5.2, array.percentile(0.9), 0.000001
+  end
 end
