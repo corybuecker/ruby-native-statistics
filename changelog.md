@@ -1,3 +1,8 @@
+# Version 1.1.1
+
+- Update all supported Ruby versions
+- Update all dependencies
+
 # Version 1.1.0
 
 - Fix percentile bug reported by @Gbird22
