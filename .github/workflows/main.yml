@@ -17,8 +17,8 @@ jobs:
           - 3.3.7
           - 3.4.1
     steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: ruby/setup-ruby@1a615958ad9d422dd932dc1d5823942ee002799f
         with:
           ruby-version: ${{ matrix.ruby }}
       - run: gem install bundler --version 2.6.3 --no-document
