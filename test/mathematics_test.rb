@@ -1,18 +1,10 @@
-require "test_helper"
+# frozen_string_literal: true
 
-class TestClass
-  include Mathematics
-end
+require 'test_helper'
 
 class MathematicsTest < Minitest::Test
   def test_that_it_has_a_version_number
     refute_nil ::RubyNativeStatistics::VERSION
-  end
-
-  def test_exception_for_non_array
-    assert_raises TypeError do
-      TestClass.new.mean
-    end
   end
 
   def test_mean
@@ -21,7 +13,7 @@ class MathematicsTest < Minitest::Test
 
   def test_mean_with_non_number
     assert_raises TypeError do
-      ((1..10).to_a + [-41, "a", 0]).mean
+      ((1..10).to_a + [-41, 'a', 0]).mean
     end
   end
 
@@ -33,6 +25,10 @@ class MathematicsTest < Minitest::Test
 
   def test_median
     assert_equal 2.0, [1, 3, 2].median
+  end
+
+  def test_median_infinity
+    assert_equal 2, [-Float::INFINITY, 1, 3, 2, Float::INFINITY].median
   end
 
   def test_median_with_even_number_of_elements
@@ -51,7 +47,7 @@ class MathematicsTest < Minitest::Test
 
   def test_median_with_non_number
     assert_raises TypeError do
-      ((1..10).to_a + [-41, "a", 0]).median
+      ((1..10).to_a + [-41, 'a', 0]).median
     end
   end
 

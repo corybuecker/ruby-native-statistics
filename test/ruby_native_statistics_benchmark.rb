@@ -1,11 +1,12 @@
-require "test_helper"
-require "minitest/benchmark"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class RubyNativeStatisticsBenchmark < Minitest::Benchmark
   def bench_native_stdev
     array = (1..10_000).to_a
 
-    assert_performance_constant 0.99 do |input|
+    assert_performance_constant 0.999 do |_input|
       array.to_a.stdev
     end
   end
@@ -13,10 +14,10 @@ class RubyNativeStatisticsBenchmark < Minitest::Benchmark
   def bench_ruby_stdev
     array = (1..10_000).to_a
 
-    assert_performance_constant 0.99 do |input|
+    assert_performance_constant 0.999 do |_input|
       total = array.inject(0) { |inner_total, element| inner_total + element }
       mean = total.to_f / array.size
-      total_distance_from_mean = array.inject(0) { |inner_total, element| inner_total + (element - mean) ** 2 }
+      total_distance_from_mean = array.inject(0) { |inner_total, element| inner_total + (element - mean)**2 }
       Math.sqrt(total_distance_from_mean / (array.size - 1))
     end
   end
@@ -24,7 +25,7 @@ class RubyNativeStatisticsBenchmark < Minitest::Benchmark
   def bench_native_mean
     array = (1..10_000).to_a
 
-    assert_performance_constant 0.99 do |input|
+    assert_performance_constant 0.999 do |_input|
       array.mean
     end
   end
@@ -32,7 +33,7 @@ class RubyNativeStatisticsBenchmark < Minitest::Benchmark
   def bench_ruby_mean
     array = (1..10_000).to_a
 
-    assert_performance_constant 0.99 do |input|
+    assert_performance_constant 0.999 do |_input|
       array.inject { |sum, el| sum + el }.to_f / array.size
     end
   end
@@ -40,7 +41,7 @@ class RubyNativeStatisticsBenchmark < Minitest::Benchmark
   def bench_native_median
     array = (1..10_000).to_a.shuffle
 
-    assert_performance_constant 0.99 do |input|
+    assert_performance_constant 0.999 do |_input|
       array.median
     end
   end
@@ -48,7 +49,7 @@ class RubyNativeStatisticsBenchmark < Minitest::Benchmark
   def bench_ruby_median
     array = (1..10_000).to_a.shuffle
 
-    assert_performance_constant 0.99 do |input|
+    assert_performance_constant 0.999 do |_input|
       new_array = array.sort
       elements = new_array.length
       middle = elements / 2

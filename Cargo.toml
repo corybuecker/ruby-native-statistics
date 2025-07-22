@@ -1,0 +1,3 @@
+[workspace]
+members = ["./ext/ruby_native_statistics"]
+resolver = "3"
