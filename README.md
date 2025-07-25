@@ -16,20 +16,16 @@ Check the Github Actions build to see the currently supported versions of Ruby. 
 
 It is generally more performant than calculating these values with pure Ruby. For a comparison, run the benchmarks with `rake benchmark`.
 
-| Test (Ruby 3.3.0)  | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
-| ------------------ | -------- | -------- | -------- | -------- | -------- |
-| bench_native_stdev | 0.000069 | 0.000074 | 0.000064 | 0.000065 | 0.000065 |
-| bench_ruby_stdev   | 0.000947 | 0.000932 | 0.000927 | 0.000948 | 0.000909 |
+Here's the data converted to a Markdown table:
 
-| Test (Ruby 3.3.0)   | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
-| ------------------- | -------- | -------- | -------- | -------- | -------- |
-| bench_native_median | 0.000719 | 0.00067  | 0.000659 | 0.000638 | 0.000668 |
-| bench_ruby_median   | 0.000774 | 0.000743 | 0.000724 | 0.000697 | 0.000683 |
-
-| Test (Ruby 3.3.0) | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
-| ----------------- | -------- | -------- | -------- | -------- | -------- |
-| bench_native_mean | 0.000035 | 0.000035 | 0.000034 | 0.000032 | 0.000033 |
-| bench_ruby_mean   | 0.000291 | 0.000287 | 0.000291 | 0.000299 | 0.000281 |
+| Benchmark (Ruby 3.4.4)  | Run 1    | Run 2    | Run 3    | Run 4    | Run 5    |
+|--------------------------|----------|----------|----------|----------|----------|
+| bench_ruby_median        | 0.000676 | 0.000611 | 0.000619 | 0.000620 | 0.000583 |
+| bench_native_median      | 0.000179 | 0.000167 | 0.000127 | 0.000118 | 0.000188 |
+| bench_ruby_stdev         | 0.000780 | 0.000767 | 0.000730 | 0.000718 | 0.000733 |
+| bench_native_stdev       | 0.000046 | 0.000027 | 0.000034 | 0.000026 | 0.000043 |
+| bench_ruby_mean          | 0.000261 | 0.000240 | 0.000242 | 0.000250 | 0.000241 |
+| bench_native_mean        | 0.000033 | 0.000023 | 0.000022 | 0.000028 | 0.000022 |
 
 ## Found a bug? Need a function?
 
@@ -46,6 +42,12 @@ If you found a bug or need a particular function, please let me know! I work on 
     # calculate population standard deviation
     p r.stdevp
 
+    # calculate sample variance
+    p r.var
+
+    # calculate population variance
+    p r.varp
+
     # calculate mean
     p r.mean
 
@@ -60,12 +62,3 @@ If you found a bug or need a particular function, please let me know! I work on 
 ### Percentile
 
 Percentile uses the same rounding method as Excel, sometimes called R7.
-
-## Links
-
-This is the third version of this gem, and it is a total rewrite of a SWIG-based design. Lots of thanks to the following resources:
-
-- https://blog.jcoglan.com/2012/07/29/your-first-ruby-native-extension-c/
-- https://github.com/andremedeiros/ruby-c-cheat-sheet
-- http://silverhammermba.github.io/emberb/c/
-- http://docs.ruby-lang.org/en/2.3.0/extension_rdoc.html

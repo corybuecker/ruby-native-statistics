@@ -1,7 +1,4 @@
-require "ruby_native_statistics/version"
-require "ruby_native_statistics/ruby_native_statistics"
+# frozen_string_literal: true
 
-class Array
-  include Mathematics
-  include Dispersion
-end
+require 'ruby_native_statistics/version'
+require 'ruby_native_statistics/ruby_native_statistics'

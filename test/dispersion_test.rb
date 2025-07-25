@@ -1,25 +1,21 @@
-require "test_helper"
+# frozen_string_literal: true
 
-class TestClass
-  include Dispersion
-end
+require 'test_helper'
 
 class DispersionTest < Minitest::Test
   def test_that_it_has_a_version_number
     refute_nil ::RubyNativeStatistics::VERSION
   end
 
-  def test_exception_for_non_array
-    assert_raises TypeError do
-      TestClass.new.stdev
+  def test_sample_standard_deviation_with_empty_array
+    assert_raises RangeError do
+      [].stdev
     end
+  end
 
-    assert_raises TypeError do
-      TestClass.new.stdevs
-    end
-
-    assert_raises TypeError do
-      TestClass.new.stdevp
+  def test_population_standard_deviation_with_empty_array
+    assert_raises RangeError do
+      [].stdevp
     end
   end
 
@@ -33,7 +29,7 @@ class DispersionTest < Minitest::Test
 
   def test_sample_standard_deviation_with_non_number
     assert_raises TypeError do
-      ((1..10).to_a + [-41, "a", 0]).stdev
+      ((1..10).to_a + [-41, 'a', 0]).stdev
     end
   end
 
@@ -47,7 +43,7 @@ class DispersionTest < Minitest::Test
 
   def test_population_standard_deviation_with_non_number
     assert_raises TypeError do
-      ((1..10).to_a + [-41, "a", 0]).stdev
+      ((1..10).to_a + [-41, 'a', 0]).stdevp
     end
   end
 
@@ -61,7 +57,7 @@ class DispersionTest < Minitest::Test
     end
 
     assert_raises TypeError do
-      (1..10).to_a.percentile("a")
+      (1..10).to_a.percentile('a')
     end
 
     assert_raises ArgumentError do
@@ -73,7 +69,7 @@ class DispersionTest < Minitest::Test
     end
 
     assert_raises TypeError do
-      ((1..10).to_a + [-41, "a", 0]).percentile(1)
+      ((1..10).to_a + [-41, 'a', 0]).percentile(1)
     end
   end
 
@@ -137,6 +133,23 @@ class DispersionTest < Minitest::Test
     assert_in_delta 5.2, array.percentile(0.1), 0.000001
     assert_in_delta 5.3, array.percentile(0.5), 0.000001
     assert_in_delta 5.26, array.percentile(0.4), 0.000001
+  end
+
+  def test_percentile_repeating_many
+    array = [5.4, 5.3, 5.2, 5.4, 5.2, 4.6, 4.7, 5.0, 5.1, 5.0, 5.4, 4.6, 5.2, 4.6, 4.7, 5.2, 5.4, 5.0,
+             5.3, 5.3, 6.0, 5.1, 5.5, 5.5, 5.5, 5.6, 5.8, 5.2, 4.9, 5.5, 5.7, 5.9].to_a.shuffle
+
+    assert_in_delta 4.6, array.percentile(0.0), 0.00000001
+    assert_in_delta 4.7, array.percentile(0.1), 0.00000001
+    assert_in_delta 5.0, array.percentile(0.2), 0.00000001
+    assert_in_delta 5.1, array.percentile(0.3), 0.00000001
+    assert_in_delta 5.2, array.percentile(0.4), 0.00000001
+    assert_in_delta 5.25, array.percentile(0.5), 0.00000001
+    assert_in_delta 5.36, array.percentile(0.6), 0.00000001
+    assert_in_delta 5.4, array.percentile(0.7), 0.00000001
+    assert_in_delta 5.5, array.percentile(0.8), 0.00000001
+    assert_in_delta 5.69, array.percentile(0.9), 0.00000001
+    assert_in_delta 6.0, array.percentile(1.0), 0.00000001
   end
 
   def test_percentile_duplicates

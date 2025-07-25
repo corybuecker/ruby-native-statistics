@@ -56,3 +56,6 @@ build-iPhoneSimulator/
 # .rubocop-https?--*
 
 *.bundle
+
+/ext/ruby_native_statistics/target
+/target
