@@ -31,6 +31,10 @@ class DispersionTest < Minitest::Test
     assert_in_delta 13.65039682, ((1..10).to_a + [-41, 0]).stdev, 0.00001
   end
 
+  def test_sample_standard_deviation_with_single_element
+    assert [1].stdev.nan?
+  end
+
   def test_sample_variance
     assert_in_delta 186.3333333, ((1..10).to_a + [-41, 0]).var, 0.00001
   end

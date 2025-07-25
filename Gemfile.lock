@@ -22,6 +22,7 @@ PLATFORMS
 
 DEPENDENCIES
   minitest (~> 5.21)
+  rake (~> 13.0)
   ruby_native_statistics!
 
 BUNDLED WITH

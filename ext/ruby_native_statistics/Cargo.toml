@@ -6,9 +6,10 @@ edition = "2024"
 [lib]
 crate-type = ["cdylib"]
 
-[dependencies]
-magnus = { version = "0.7.1", features = ["rb-sys"] }
-thiserror = "2.0.12"
-
 [build-dependencies]
-rb-sys-env = "0.1"
+rb-sys-env = "0.2.2"
+
+[dependencies]
+magnus = { version = "0.7.1" }
+rb-sys = "0.9.116"
+thiserror = "2.0.12"
