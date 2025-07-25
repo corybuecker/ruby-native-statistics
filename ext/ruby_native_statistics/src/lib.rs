@@ -9,9 +9,18 @@ fn calculate_mean(array: &[f64]) -> f64 {
 fn distance_from_mean(array: &[f64]) -> f64 {
     let mean = calculate_mean(array);
 
-    array
-        .iter()
-        .fold(0.0, |acc, x| acc + (x - mean).powi(2))
+    array.iter().fold(0.0, |acc, x| acc + (x - mean).powi(2))
+}
+
+fn calculate_variance(array: &[f64], population: bool) -> f64 {
+    let length = array.len() as f64;
+    let distance_from_mean = distance_from_mean(array);
+    let divisor = if population { length } else { length - 1.0 };
+    distance_from_mean / divisor
+}
+
+fn calculate_stdev(array: &[f64], population: bool) -> f64 {
+    calculate_variance(array, population).sqrt()
 }
 
 fn mean(rb_self: RArray) -> Result<f64, Error> {
@@ -54,70 +63,54 @@ fn median(rb_self: RArray) -> Result<f64, Error> {
 
 fn var(rb_self: RArray) -> Result<f64, Error> {
     let array = rb_self.to_vec::<f64>()?;
-    let length = array.len() as f64;
 
-    if length == 0.0 {
+    if array.is_empty() {
         return Err(Error::new(
             magnus::exception::range_error(),
             "Cannot perform operation on empty array",
         ));
     }
 
-    let distance_from_mean = distance_from_mean(&array);
-    let average_distance = distance_from_mean / (length - 1.0);
-
-    Ok(average_distance)
+    Ok(calculate_variance(&array, false))
 }
 
 fn stdev(rb_self: RArray) -> Result<f64, Error> {
     let array = rb_self.to_vec::<f64>()?;
-    let length = array.len() as f64;
 
-    if length == 0.0 {
+    if array.is_empty() {
         return Err(Error::new(
             magnus::exception::range_error(),
             "Cannot perform operation on empty array",
         ));
     }
 
-    let distance_from_mean = distance_from_mean(&array);
-    let average_distance = distance_from_mean / (length - 1.0);
-
-    Ok(average_distance.sqrt())
+    Ok(calculate_stdev(&array, false))
 }
 
 fn varp(rb_self: RArray) -> Result<f64, Error> {
     let array = rb_self.to_vec::<f64>()?;
-    let length = array.len() as f64;
 
-    if length == 0.0 {
+    if array.is_empty() {
         return Err(Error::new(
             magnus::exception::range_error(),
             "Cannot perform operation on empty array",
         ));
     }
 
-    let distance_from_mean = distance_from_mean(&array);
-    let average_distance = distance_from_mean / (length);
-
-    Ok(average_distance)
+    Ok(calculate_variance(&array, true))
 }
 
 fn stdevp(rb_self: RArray) -> Result<f64, Error> {
     let array = rb_self.to_vec::<f64>()?;
-    let length = array.len() as f64;
 
-    if length == 0.0 {
+    if array.is_empty() {
         return Err(Error::new(
             magnus::exception::range_error(),
             "Cannot perform operation on empty array",
         ));
     }
 
-    let distance_from_mean = distance_from_mean(&array);
-    let average_distance = distance_from_mean / length;
-
-    Ok(average_distance.sqrt())
+    Ok(calculate_stdev(&array, true))
 }
 
 fn percentile(rb_self: RArray, percentile: f64) -> Result<f64, Error> {
