@@ -1,16 +1,16 @@
 use magnus::{Error, Module, RArray, Ruby, method};
 
-fn calculate_mean(array: &Vec<f64>) -> f64 {
+fn calculate_mean(array: &[f64]) -> f64 {
     let length = array.len() as f64;
     let sum = array.iter().sum::<f64>();
     sum / length
 }
 
-fn distance_from_mean(array: &Vec<f64>) -> f64 {
+fn distance_from_mean(array: &[f64]) -> f64 {
     let mean = calculate_mean(array);
 
     array
-        .into_iter()
+        .iter()
         .fold(0.0, |acc, x| acc + (x - mean).powi(2))
 }
 
