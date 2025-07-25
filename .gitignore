@@ -59,3 +59,4 @@ build-iPhoneSimulator/
 
 /ext/ruby_native_statistics/target
 /target
+/.rules
