@@ -15,4 +15,4 @@ Rake::TestTask.new benchmark: [:clean, :clobber, 'compile:release'] do |t|
   t.test_files = ['test/**/*_benchmark.rb']
 end
 
-task :default => [:compile, :test]
+task :default => ['compile:dev', :test]

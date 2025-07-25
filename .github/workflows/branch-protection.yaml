@@ -1,11 +1,12 @@
-name: Test suite
-
+name: branch-protection
 on:
-  - push
-
+  pull_request:
+    branches:
+      - main
+permissions:
+  contents: read
 jobs:
-  run-tests:
-    name: Run tests
+  test:
     strategy:
       matrix:
         os:
@@ -21,6 +22,6 @@ jobs:
       - uses: ruby/setup-ruby@a9bfc2ecf3dd40734a9418f89a7e9d484c32b990
         with:
           ruby-version: ${{ matrix.ruby }}
-      - run: gem install bundler --version 2.7.0 --no-document
+      - run: gem install bundler --no-document
       - run: bundle
       - run: rake

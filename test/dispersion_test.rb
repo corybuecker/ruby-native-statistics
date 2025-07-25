@@ -19,6 +19,14 @@ class DispersionTest < Minitest::Test
     end
   end
 
+  def test_empty_array_error_message
+    begin
+      [].stdevs
+    rescue RangeError => e
+      assert_equal e.to_s, 'Array must have at least one element'
+    end
+  end
+
   def test_sample_standard_deviation
     assert_in_delta 13.65039682, ((1..10).to_a + [-41, 0]).stdev, 0.00001
   end
