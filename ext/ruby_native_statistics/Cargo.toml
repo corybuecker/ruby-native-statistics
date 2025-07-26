@@ -1,6 +1,6 @@
 [package]
 name = "ruby_native_statistics"
-version = "2.0.0-pre"
+version = "2.0.0-rc1"
 edition = "2024"
 
 [lib]
