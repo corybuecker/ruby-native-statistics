@@ -33,9 +33,9 @@ Gem::Specification.new do |spec|
   spec.platform = Gem::Platform::RUBY
   spec.required_ruby_version = '>= 3.2.8'
 
-  spec.add_dependency 'rake-compiler', '~> 1.3'
   spec.add_dependency 'rb_sys', '~> 0.9.91'
 
+  spec.add_development_dependency 'rake-compiler', '~> 1.3'
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency 'minitest', '~> 5.21'
 
