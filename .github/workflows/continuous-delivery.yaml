@@ -1,7 +1,7 @@
 name: continuous-delivery
 
 permissions:
-  packages: write
+  contents: read
 
 on:
   push:
