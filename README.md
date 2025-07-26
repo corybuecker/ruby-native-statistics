@@ -57,6 +57,10 @@ If you found a bug or need a particular function, please let me know! I work on 
     # calculate percentile
     p r.percentile(0.3333)
 
+## Build notes
+
+If you are installing the source vesion of the Gem, be sure to have libclang, e.g. `libclang-dev`, installed on your system.
+
 ## Implementation notes
 
 ### Percentile
