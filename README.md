@@ -2,7 +2,7 @@
 
 [![Test status](https://github.com/corybuecker/ruby-native-statistics/workflows/Test%20suite/badge.svg)](https://github.com/corybuecker/ruby-native-statistics/actions)
 
-This is a native extension to Ruby that adds native (C) statistical functions to the Array class. At present the following functions are provided:
+This is a native extension to Ruby that adds native (Rust) statistical functions to the Array class. At present the following functions are provided:
 
 - [Sample Standard Deviation](https://en.wikipedia.org/wiki/Standard_deviation#Corrected_sample_standard_deviation) (stdev, stdevs)
 - [Population Standard Deviation](https://en.wikipedia.org/wiki/Standard_deviation#Uncorrected_sample_standard_deviation) (stdevp)
