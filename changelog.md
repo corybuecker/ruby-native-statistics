@@ -1,3 +1,8 @@
+# Version 2.0.0
+
+- Replace the C-based implementation with a Rust-based implementation. The public API is mostly unchanged (see README.md) with the exception of the error messages.
+- Test and publish cross-platform Gems for Linux x86_64, Linux aarch64, and macOS arm64.
+
 # Version 1.1.1
 
 - Update all supported Ruby versions
