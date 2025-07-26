@@ -7,7 +7,11 @@ edition = "2024"
 crate-type = ["cdylib"]
 
 [build-dependencies]
-rb-sys-env = "0.2.2"
+rb-sys-env = "0.2"
+
+[dev-dependencies]
+rb-sys-env = { version = "0.1" }
+rb-sys-test-helpers = { version = "0.2" }
 
 [dependencies]
 magnus = { version = "0.7.1" }
