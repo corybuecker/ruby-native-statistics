@@ -10,7 +10,7 @@ crate-type = ["cdylib"]
 rb-sys-env = "0.2"
 
 [dev-dependencies]
-rb-sys-env = { version = "0.1" }
+rb-sys-env = { version = "0.2" }
 rb-sys-test-helpers = { version = "0.2" }
 
 [dependencies]
