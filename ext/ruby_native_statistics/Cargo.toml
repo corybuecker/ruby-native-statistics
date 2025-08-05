@@ -15,5 +15,5 @@ rb-sys-test-helpers = { version = "0.2" }
 
 [dependencies]
 magnus = { version = "0.7.1" }
-rb-sys = "0.9.116"
+rb-sys = "0.9.117"
 thiserror = "2.0.12"
