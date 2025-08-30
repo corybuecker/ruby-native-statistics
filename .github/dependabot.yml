@@ -11,6 +11,6 @@ updates:
       interval: "weekly"
 
   - package-ecosystem: "cargo"
-    directory: "/"
+    directory: "/ext/ruby_native_statistics"
     schedule:
       interval: "weekly"
