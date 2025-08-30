@@ -14,6 +14,6 @@ rb-sys-env = { version = "0.2" }
 rb-sys-test-helpers = { version = "0.2" }
 
 [dependencies]
-magnus = { version = "0.7.1" }
+magnus = { version = "0.8.0" }
 rb-sys = "0.9.117"
 thiserror = "2.0.16"
