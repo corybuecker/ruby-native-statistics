@@ -32,7 +32,7 @@ jobs:
       - run: rake native gem
       - if: ${{ matrix.os == 'ubuntu-latest' }}
         run: gem build
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: gem-${{ matrix.os }}
           path: |
