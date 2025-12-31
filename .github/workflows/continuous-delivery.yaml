@@ -24,7 +24,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
-      - uses: ruby/setup-ruby@d354de180d0c9e813cfddfcbdc079945d4be589b
+      - uses: ruby/setup-ruby@ae195bbe749a7cef685ac729197124a48305c1cb
         with:
           ruby-version: 3.4.4
       - run: gem install bundler --no-document
