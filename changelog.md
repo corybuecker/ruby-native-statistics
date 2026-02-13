@@ -1,3 +1,7 @@
+# Version 2.0.1
+
+- Update Rust dependencies to support Ruby 4.0.1
+
 # Version 2.0.0
 
 - Replace the C-based implementation with a Rust-based implementation. The public API is mostly unchanged (see README.md) with the exception of the error messages.
