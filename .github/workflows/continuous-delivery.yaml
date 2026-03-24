@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
       - uses: ruby/setup-ruby@319994f95fa847cf3fb3cd3dbe89f6dcde9f178f
         with:
-          ruby-version: 3.4.4
+          ruby-version: 4.0.1
       - run: gem install bundler --no-document
       - run: bundle
       - run: rake native gem
