@@ -4,13 +4,19 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 14
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 14
 
   - package-ecosystem: "cargo"
     directory: "/ext/ruby_native_statistics"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 14
