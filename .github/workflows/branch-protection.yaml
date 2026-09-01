@@ -16,9 +16,9 @@ jobs:
           - macos-latest
           - ubuntu-24.04-arm
         ruby:
-          - 3.3.10
-          - 3.4.8
-          - 4.0.1
+          - 3.3.12
+          - 3.4.10
+          - 4.0.6
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
