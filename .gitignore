@@ -60,3 +60,4 @@ build-iPhoneSimulator/
 /target
 /.rules
 .env
+*.so
