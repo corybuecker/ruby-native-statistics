@@ -2,18 +2,15 @@
 name = "ruby_native_statistics"
 version = "2.0.1"
 edition = "2024"
+publish = false
 
 [lib]
 crate-type = ["cdylib"]
 
-[build-dependencies]
-rb-sys-env = "0.2"
-
 [dev-dependencies]
-rb-sys-env = { version = "0.2" }
-rb-sys-test-helpers = { version = "0.3" }
+rb-sys-test-helpers = { version = "0.3.0" }
 
 [dependencies]
-magnus = { version = "0.9.1" }
-rb-sys = "0.9.124"
-thiserror = "2.0.18"
+magnus = { version = "0.9.3" }
+rb-sys = "0.9.130"
+thiserror = "2.0.21"
