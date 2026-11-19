@@ -8,9 +8,9 @@ publish = false
 crate-type = ["cdylib"]
 
 [dev-dependencies]
-rb-sys-test-helpers = { version = "0.3" }
+rb-sys-test-helpers = { version = "0.3.0" }
 
 [dependencies]
-magnus = { version = "0.9.1" }
-rb-sys = "0.9.124"
-thiserror = "2.0.18"
+magnus = { version = "0.9.3" }
+rb-sys = "0.9.130"
+thiserror = "2.0.21"
