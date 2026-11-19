@@ -253,7 +253,6 @@ version = "2.0.1"
 dependencies = [
  "magnus",
  "rb-sys",
- "rb-sys-env",
  "rb-sys-test-helpers",
  "thiserror",
 ]

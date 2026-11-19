@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     ruby_native_statistics (2.0.1)
-      rb_sys (~> 0.9.130)
+      rb_sys (~> 0.9)
 
 GEM
   remote: https://rubygems.org/

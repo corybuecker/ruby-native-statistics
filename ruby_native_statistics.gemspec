@@ -31,9 +31,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.platform = Gem::Platform::RUBY
-  spec.required_ruby_version = '>= 3.2.8'
+  spec.required_ruby_version = '>= 3.3.14'
 
-  spec.add_dependency 'rb_sys', '~> 0.9.130'
+  spec.add_dependency 'rb_sys', '~> 0.9'
 
   spec.add_development_dependency 'rake-compiler', '~> 1.3'
   spec.add_development_dependency "rake", "~> 13.0"
