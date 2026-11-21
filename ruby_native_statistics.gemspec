@@ -10,11 +10,12 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/corybuecker/ruby-native-statistics'
   spec.license = 'Unlicense'
 
+  spec.metadata["rubygems_mfa_required"] = "true"
   spec.metadata['allowed_push_host'] = 'https://rubygems.org'
-  spec.metadata['changelog_uri'] = "#{spec.homepage}/CHANGELOG.md"
-  spec.metadata['source_code_uri'] = spec.homepage
   spec.metadata['bug_tracker_uri'] = "#{spec.homepage}/issues"
+  spec.metadata['changelog_uri'] = "#{spec.homepage}/CHANGELOG.md"
   spec.metadata['documentation_uri'] = "#{spec.homepage}/blob/main/README.md"
+  spec.metadata['source_code_uri'] = spec.homepage
 
   spec.name = 'ruby_native_statistics'
   spec.summary = 'High performance, native (Rust) implementations of various statistical functions.'
@@ -28,16 +29,8 @@ Gem::Specification.new do |spec|
     end
   end
 
-  spec.require_paths = ['lib']
-
-  spec.platform = Gem::Platform::RUBY
-  spec.required_ruby_version = '>= 3.3.14'
-
   spec.add_dependency 'rb_sys', '~> 0.9'
-
-  spec.add_development_dependency 'rake-compiler', '~> 1.3'
-  spec.add_development_dependency "rake", "~> 13.0"
-  spec.add_development_dependency 'minitest', '~> 6.0'
-
+  spec.require_paths = ['lib']
+  spec.required_ruby_version = '>= 3.3.14'
   spec.version = RubyNativeStatistics::VERSION
 end
