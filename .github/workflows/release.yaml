@@ -13,7 +13,46 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  source-gem:
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+      artifact-metadata: write
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@f9c4492e86def3e644ab32a0ef185eda5b0c20d0 # v1.342.0
+        with:
+          ruby-version: "4"
+      - run: gem install bundler --no-document
+      - run: bundle install
+      - run: rake build
+      - id: compiled
+        run: |
+          set -euo pipefail
+          files=(pkg/ruby_native_statistics-*.gem)
+          if [ "${#files[@]}" -ne 1 ]; then
+            echo "Expected exactly one gem in pkg/, found: ${files[*]}" >&2
+            exit 1
+          fi
+          echo "path=${files[0]}" >> "$GITHUB_OUTPUT"
+          echo "name=$(basename "${files[0]}")" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          path: ${{ steps.compiled.outputs.path }}
+          name: ${{ steps.compiled.outputs.name }}
+      - run: gem install ${{ steps.compiled.outputs.path }}
+      - uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-path: ${{ steps.compiled.outputs.path }}
+
+  platform-gems:
+    needs: source-gem
+
     permissions:
       contents: read
       id-token: write
@@ -57,7 +96,7 @@ jobs:
           subject-path: ${{ steps.compiled.outputs.path }}
 
   release:
-    needs: build
+    needs: platform-gems
     runs-on: ubuntu-latest
 
     permissions:
