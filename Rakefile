@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "bundler/gem_tasks"
 require 'minitest/test_task'
 Minitest::TestTask.create
 
@@ -15,4 +16,4 @@ Rake::TestTask.new benchmark: [:clean, :clobber, 'compile:release'] do |t|
   t.test_files = ['test/**/*_benchmark.rb']
 end
 
-task :default => ['compile:dev', :test]
+task :default => [:compile, :test]

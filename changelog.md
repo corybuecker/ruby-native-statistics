@@ -1,3 +1,8 @@
+# Version 2.0.2
+
+- Update all supported Ruby versions
+- Update all dependencies
+
 # Version 2.0.1
 
 - Update Rust dependencies to support Ruby 4.0.1
