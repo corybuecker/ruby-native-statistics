@@ -67,7 +67,9 @@ jobs:
     steps:
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
-          path: "release"
+          path: "release/"
+      - run: |
+          ls -al release/
       - run: gh release create "$GITHUB_REF_NAME" release/*.gem --generate-notes
         env:
           GH_TOKEN: ${{ github.token }}
